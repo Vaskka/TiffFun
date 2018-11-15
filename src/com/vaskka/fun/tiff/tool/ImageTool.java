@@ -1,16 +1,22 @@
 package com.vaskka.fun.tiff.tool;
 
+import com.vaskka.fun.tiff.entity.Matrix;
 import com.vaskka.fun.tiff.entity.PixImage;
 import com.vaskka.fun.tiff.entity.Pixel;
+import com.vaskka.fun.tiff.entity.PointSet;
+import com.vaskka.fun.tiff.exceptions.TIFFMatrixException;
 import com.vaskka.fun.tiff.exceptions.TiffChangeRunningException;
 import com.vaskka.fun.tiff.utils.ImageUtility;
 import com.vaskka.fun.tiff.utils.UsualUtil;
 
 import javax.imageio.ImageIO;
+import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
+import static com.vaskka.fun.tiff.utils.ImageUtility.energy2gray;
+import static com.vaskka.fun.tiff.utils.UsualUtil.l;
 import static java.io.File.separator;
 
 /**
@@ -43,12 +49,12 @@ public class ImageTool {
      * 转换图像到boxblur图像，保存在imagePath同一路径
      * @param imagePath 图片路径
      * @param outputPath 输出路径
-     * @param count
+     * @param count 迭代次数
      * @return BufferedImage
      * @throws TiffChangeRunningException 运行异常
      * @throws IOException 文件读写异常
      */
-    public static BufferedImage getBoxBlurImage(String imagePath, String outputPath, int count) throws TiffChangeRunningException, IOException {
+    public static BufferedImage getBoxBlurImage(String imagePath, String outputPath, int count) throws IOException {
         innerBoxBlurAndWriteInFile(imagePath, outputPath, count);
 
         return ImageIO.read(new File(outputPath));
@@ -60,12 +66,12 @@ public class ImageTool {
      * @param outputImagePath 目标文件路径
      * @param count 迭代次数
      */
-    private static void innerBoxBlurAndWriteInFile(String sourceImagePath, String outputImagePath, int count) throws TiffChangeRunningException {
+    private static void innerBoxBlurAndWriteInFile(String sourceImagePath, String outputImagePath, int count)  {
 
         var image = ImageUtility.readTIFFImageFromFile(sourceImagePath);
 
         for (int i = 0; i < count; i++) {
-            fromSouceImageGetBoxBlurImage(image);
+            image = fromSourceImageGetBoxBlurImage(image);
         }
 
         ImageUtility.writeTIFFImageToFile(image, outputImagePath);
@@ -78,197 +84,152 @@ public class ImageTool {
      * @param sourceImage 源图像
      * @return PixImage
      */
-    private static PixImage fromSouceImageGetBoxBlurImage(PixImage sourceImage) throws TiffChangeRunningException {
+    private static PixImage fromSourceImageGetBoxBlurImage(PixImage sourceImage) {
+        var inner = sourceImage.getPixels();
+        var width = sourceImage.getWidth();
+        var height = sourceImage.getHeight();
+        var newInner = new Pixel[width][height];
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
 
-        var pixels = sourceImage.getPixels();
+                var targetR = 0;
+                var targetG = 0;
+                var targetB = 0;
 
-        for (int i = 0; i < sourceImage.getWidth(); i++) {
-            for (int j = 0; j < sourceImage.getHeight(); j++) {
-                // 判断边缘或角落
-                if(i == 0 || i == sourceImage.getWidth() - 1 || j == 0 || j == sourceImage.getHeight() - 1) {
-                    if ((i == 0 && j == 0)
-                            || (i == 0 && j == sourceImage.getHeight())
-                            || (j == 0 && i == sourceImage.getWidth())
-                            || (j == sourceImage.getHeight() && i == sourceImage.getWidth())) {
-                        // 角落处理
-                        var iLength = new int[4];
-                        var jLength = new int[4];
-
-                        if (i == 0 && j == 0) {
-                            // 左上角
-                            int c = 0;
-                            for (int k = 0; k < 2; k++) {
-                                for (int l = 0; l < 2; l++) {
-                                    iLength[c] = k;
-                                    jLength[c] = l;
-                                    c++;
-                                }
-                            }
+                var count = 0;
+                for (int ii = i - 1; ii <= i + 1; ii++) {
+                    for (int jj = j - 1; jj <= j + 1; jj++) {
+                        if (ii < 0 || ii >= width || jj < 0 || jj >= height) {
+                            continue;
                         }
-                        else {
-                            int c = 0;
-                            if (i == 0 && j == sourceImage.getHeight()) {
-                                // 左下角
-                                for (int k = 0; k < 2; k++) {
-                                    for (int l = sourceImage.getHeight() - 1; l > sourceImage.getHeight() - 3; l--) {
-                                        iLength[c] = k;
-                                        jLength[c] = l;
-                                        c++;
-                                    }
-                                }
-                            }
-                            else {
-                                if (i == sourceImage.getHeight() && j == 0) {
-                                    // 右上角
-                                    for (int k = 0; k < 2; k++) {
-                                        for (int l = sourceImage.getWidth() - 1; l > sourceImage.getWidth() - 3; l--) {
-                                            iLength[c] = l;
-                                            jLength[c] = k;
-                                            c++;
-                                        }
-                                    }
-                                }
-                                else {
-                                    // 右下角
-                                    for (int l = sourceImage.getWidth() - 1; l > sourceImage.getWidth() - 3; l--) {
-                                        for (int k = sourceImage.getHeight() - 1; k >sourceImage.getHeight() - 3; k--) {
-                                            iLength[c] = l;
-                                            jLength[c] = k;
-                                            c++;
-                                        }
-
-                                    }
-
-                                }
-                            }
-                        }
-
-                        // 写入像素值
-                        changePixelOnPixels(pixels, i, j, getBoxBlurPixel(pixels, iLength, jLength));
-
+                        targetR += inner[ii][jj].getRed();
+                        targetG += inner[ii][jj].getGreen();
+                        targetB += inner[ii][jj].getBlue();
+                        count ++;
                     }
-                    else {
-                        // 边缘处理
-                        int c = 0;
-                        var iLength = new int[6];
-                        var jLength = new int[6];
-
-                        if (i == 0) {
-                            // 左侧
-
-                            for (int k = 0; k < 2; k++) {
-                                for (int m = j - 1; m < j + 2; m++) {
-                                    iLength[c] = k;
-                                    jLength[c] = m;
-                                    c++;
-                                }
-                            }
-
-                        }
-                        else {
-                            if (j == 0) {
-                                // 上侧
-
-                                for (int k = 0; k < 2; k++) {
-                                    for (int m = i - 1; m < i + 2; m++) {
-                                        iLength[c] = m;
-                                        jLength[c] = k;
-                                        c++;
-                                    }
-                                }
-                            }
-                            else {
-                                if (j == sourceImage.getHeight()) {
-                                    // 下侧
-                                    for (int k = j - 1; k < sourceImage.getHeight(); k++) {
-                                        for (int m = i - 1; m < i + 2; m++) {
-                                            iLength[c] = m;
-                                            jLength[c] = k;
-                                            c++;
-                                        }
-                                    }
-
-                                }
-                                else {
-                                    // 右侧
-                                    for (int k = i - 1; k < sourceImage.getWidth(); k++) {
-                                        for (int m = j - 1; m < j + 2; m++) {
-                                            iLength[c] = k;
-                                            jLength[c] = m;
-                                            c++;
-                                        }
-                                    }
-                                }
-                            }
-
-                        }
-                        // 写入像素值
-                        changePixelOnPixels(pixels, i, j, getBoxBlurPixel(pixels, iLength, jLength));
-
-                    }
-
                 }
-                else {
-                    // 不是边缘
-                    int c = 0;
-                    var iLength = new int[9];
-                    var jLength = new int[9];
 
-                    for (int k = i - 1; k < i + 2; k++) {
-                        for (int m = j - 1; m < j + 2; m++) {
-                            iLength[c] = k;
-                            jLength[c] = m;
+
+
+                var r = (short)(targetR / count);
+                var g = (short)(targetG / count);
+                var b = (short)(targetB / count);
+                newInner[i][j] = new Pixel( r, g, b);
+            }
+        }
+
+        return new PixImage(newInner, sourceImage.getWidth(), sourceImage.getHeight());
+    }
+
+
+    public static BufferedImage getSobelImage(String imagePath, int count) throws IOException, TIFFMatrixException {
+        String outputPath = UsualUtil.getFileDirectoryPath(imagePath) + separator + UsualUtil.changeFileToBoxBlurOutputFileName(UsualUtil.getFileName(imagePath));
+
+        innerGetSobelImage(imagePath, outputPath, count);
+
+        return ImageIO.read(new File(outputPath));
+    }
+
+
+    public static BufferedImage getSobelImage(String imagePath, String outputPath, int count) throws IOException, TIFFMatrixException {
+        innerGetSobelImage(imagePath, outputPath, count);
+
+        return ImageIO.read(new File(outputPath));
+    }
+
+    private static void innerGetSobelImage(String sourceImagePath, String outputImagePath, int count) throws TIFFMatrixException {
+        var image = ImageUtility.readTIFFImageFromFile(sourceImagePath);
+
+        for (int i = 0; i < count; i++) {
+            image = fromSourceImageGetSobelImage(image);
+        }
+
+        ImageUtility.writeTIFFImageToFile(image, outputImagePath);
+    }
+
+    private static PixImage fromSourceImageGetSobelImage(PixImage sourceImage) throws TIFFMatrixException {
+
+        var newInner = new Pixel[sourceImage.getWidth()][sourceImage.getHeight()];
+        var inner = sourceImage.getPixels();
+
+        var width = sourceImage.getWidth();
+        var height = sourceImage.getHeight();
+
+        for (int i = 0; i < width; i++) {
+            for (int j = 0; j < height; j++) {
+
+                long[][] innerR = new long[3][3];
+                long[][] innerG = new long[3][3];
+                long[][] innerB = new long[3][3];
+
+                for (int ii = i - 1, countI = 0; ii <= i + 1; ii++, countI++) {
+                    for (int jj =j - 1, countJ = 0; jj <= j + 1; jj++, countJ++) {
+
+                        int realI = ii;
+                        int realJ = jj;
+
+                        if (ii < 0) {
+                            realI++;
                         }
-                    }
+                        if (ii >= width) {
+                            realI--;
+                        }
+                        if (jj < 0) {
+                            realJ++;
+                        }
+                        if (jj >= height) {
+                            realJ--;
+                        }
 
-                    // 写入像素值
-                    changePixelOnPixels(pixels, i, j, getBoxBlurPixel(pixels, iLength, jLength));
+                        // 一般情况
+                        innerR[countI][countJ] = inner[realI][realJ].getRed();
+                        innerG[countI][countJ] = inner[realI][realJ].getGreen();
+                        innerB[countI][countJ] = inner[realI][realJ].getBlue();
+
+
+                        newInner[i][j] = getGrayPixel(innerR, innerG, innerB);
+                    }
                 }
             }
         }
 
-        return new PixImage(pixels, sourceImage.getWidth(), sourceImage.getHeight());
+
+        return new PixImage(newInner, width, height);
+
+
     }
+
+
 
 
     /**
-     * 得到box blur 模糊的像素
-     * @param pixels 像素而为数组
-     * @param iLength i坐标数组
-     * @param jLength j坐标数组
-     * @return 模糊过的像素值
+     * RGB 3x3 矩阵得到灰度像素
+     * @param innerR R分量矩阵
+     * @param innerG G分量矩阵
+     * @param innerB B分量矩阵
+     * @return 目标像素
+     * @throws TIFFMatrixException 矩阵运算异常
      */
-    private static Pixel getBoxBlurPixel(Pixel[][] pixels, int[] iLength, int[] jLength) throws TiffChangeRunningException {
-        int r = 0;
-        int b = 0;
-        int g = 0;
+    private static Pixel getGrayPixel(long[][] innerR, long[][] innerG, long[][] innerB) throws TIFFMatrixException {
+        long rGx = (new Matrix(innerR)).getXGradient();
+        long rGy = (new Matrix(innerR)).getYGradient();
 
-        // 处理长度不平衡异常
-        if (iLength.length != jLength.length) {
-            throw new TiffChangeRunningException( "取平均值时ij长度不平衡", null);
-        }
+        long gGx = (new Matrix(innerG)).getXGradient();
+        long gGy = (new Matrix(innerG)).getYGradient();
 
+        long bGx = (new Matrix(innerB)).getXGradient();
+        long bGy = (new Matrix(innerB)).getYGradient();
 
-        // 计算平均
-        for (int i = 0; i < iLength.length; i++) {
-            r += pixels[iLength[i]][jLength[i]].getRed();
-            g += pixels[iLength[i]][jLength[i]].getGreen();
-            b += pixels[iLength[i]][jLength[i]].getBlue();
+        long energy = (long) (Math.pow(rGx, 2) +
+                Math.pow(rGy, 2) +
+                Math.pow(gGx, 2) +
+                Math.pow(gGy, 2) +
+                Math.pow(bGx, 2) +
+                Math.pow(bGy, 2));
+        short gray = energy2gray(energy);
 
-        }
-
-        return new Pixel((short) (r / jLength.length), (short) (g / jLength.length), (short) (b / jLength.length));
+        return new Pixel(gray, gray, gray);
     }
 
-    /**
-     * 更改特定位置的像素值
-     * @param pixels 源图片像素数组
-     * @param i y
-     * @param j x
-     * @param pixel 带改变的像素值
-     */
-    private static void changePixelOnPixels(Pixel[][] pixels, int i, int j, Pixel pixel) {
-        pixels[i][j].changeToThisPixel(pixel);
-    }
 
 }

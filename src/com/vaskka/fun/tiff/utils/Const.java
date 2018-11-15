@@ -1,5 +1,7 @@
 package com.vaskka.fun.tiff.utils;
 
+import com.vaskka.fun.tiff.entity.Matrix;
+
 /**
  * @program: TiffFun
  * @description: Const 各种常量
@@ -18,4 +20,5 @@ public final class Const {
      * 边缘文件后缀
      */
     public static final String SOBEL_EDGE_OUTPUT_IMAGE_NAME_END = "_sobel_edge";
+
 }
