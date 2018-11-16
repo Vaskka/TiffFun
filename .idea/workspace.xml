@@ -2,19 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="55cf58b6-d76e-4ae4-b603-97455d4f48ab" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/Matrix.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/PointSet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/exceptions/TIFFMatrixException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/entity/NumberTextField.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/layout/VerticalFlowLayout.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/part/ImagePanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/part/MainFrame.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/part/ShowFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TiffFun/com/vaskka/fun/tiff/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TiffFun/com/vaskka/fun/tiff/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TiffFun/com/vaskka/fun/tiff/entity/PixImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TiffFun/com/vaskka/fun/tiff/entity/PixImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TiffFun/com/vaskka/fun/tiff/entity/Pixel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TiffFun/com/vaskka/fun/tiff/entity/Pixel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/TiffFun/com/vaskka/fun/tiff/tool/ImageTool.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TiffFun/com/vaskka/fun/tiff/tool/ImageTool.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/TiffFun/com/vaskka/fun/tiff/utils/Const.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TiffFun/com/vaskka/fun/tiff/utils/Const.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/TiffFun/com/vaskka/fun/tiff/utils/UsualUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/TiffFun/com/vaskka/fun/tiff/utils/UsualUtil.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/Matrix.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/Matrix.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/tool/ImageTool.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/tool/ImageTool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/utils/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/utils/Const.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/utils/UsualUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/vaskka/fun/tiff/utils/UsualUtil.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,33 +27,35 @@
     <session id="-692419271">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="3" />
-          <entry key="project.open.time.10" value="1" />
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.10" value="2" />
           <entry key="project.open.time.3" value="1" />
           <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="4" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="iml" value="2" />
-          <entry key="java" value="16" />
+          <entry key="java" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="IDEA_MODULE" value="2" />
-          <entry key="JAVA" value="16" />
+          <entry key="JAVA" value="38" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="10497" />
+          <entry key="java" value="14376" />
+          <entry key="txt" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="10497" />
+          <entry key="JAVA" value="14376" />
+          <entry key="PLAIN_TEXT" value="24" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -63,25 +65,73 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/utils/ImageUtility.java">
+        <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/tool/ImageTool.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="57" selection-start-line="57" selection-end-line="57" />
+            <state relative-caret-position="60">
+              <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="method#fromSourceImageGetBoxBlurImage#0;class#ImageTool#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/tool/ImageTool.java">
+        <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/entity/NumberTextField.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-114">
-              <caret line="201" selection-start-line="201" selection-end-line="201" />
+            <state relative-caret-position="132">
+              <caret line="13" selection-start-line="13" selection-end-line="13" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#fromSourceImageGetBoxBlurImage#0;class#ImageTool#0" />
+                <element signature="e#323#324#0" expanded="true" />
+                <element signature="e#346#347#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/layout/VerticalFlowLayout.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1799">
+              <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/part/ImagePanel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="66">
+              <caret line="73" column="19" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#543#544#0" expanded="true" />
+                <element signature="e#574#575#0" expanded="true" />
+                <element signature="e#673#674#0" expanded="true" />
+                <element signature="e#713#714#0" expanded="true" />
+                <element signature="e#746#747#0" expanded="true" />
+                <element signature="e#778#779#0" expanded="true" />
+                <element signature="e#886#887#0" expanded="true" />
+                <element signature="e#928#929#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/Matrix.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-396">
+              <caret line="53" column="7" lean-forward="true" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#697#698#0" expanded="true" />
+                <element signature="e#725#726#0" expanded="true" />
+                <element signature="e#755#756#0" expanded="true" />
+                <element signature="e#784#785#0" expanded="true" />
+                <element signature="e#823#824#0" expanded="true" />
+                <element signature="e#856#857#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -90,9 +140,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/PointSet.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+            <state relative-caret-position="111">
+              <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
               <folding>
+                <element signature="e#320#321#0" expanded="true" />
                 <element signature="e#344#345#0" expanded="true" />
                 <element signature="e#375#376#0" expanded="true" />
                 <element signature="e#401#402#0" expanded="true" />
@@ -106,65 +157,18 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/Matrix.java">
+        <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/exceptions/TIffChangeBaseException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="100" column="40" selection-start-line="100" selection-start-column="40" selection-end-line="100" selection-end-column="40" />
+            <state relative-caret-position="261">
+              <caret line="49" column="40" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#349#350#0" expanded="true" />
+                <element signature="e#383#384#0" expanded="true" />
+                <element signature="e#1070#1071#0" expanded="true" />
+                <element signature="e#1098#1099#0" expanded="true" />
+                <element signature="e#1142#1143#0" expanded="true" />
+                <element signature="e#1176#1177#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/exceptions/TIFFMatrixException.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-              <folding>
-                <element signature="e#266#267#0" expanded="true" />
-                <element signature="e#296#297#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="27" column="115" selection-start-line="27" selection-start-column="115" selection-end-line="27" selection-end-column="115" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/utils/Const.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="22" selection-start-line="22" selection-end-line="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/utils/UsualUtil.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="885">
-              <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/PixImage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -172,8 +176,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/Pixel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
+            <state relative-caret-position="38">
               <caret line="38" column="11" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/PixImage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -205,13 +218,20 @@
         <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/exceptions/TIffChangeBaseException.java" />
         <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/PixImage.java" />
         <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/Pixel.java" />
-        <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/utils/UsualUtil.java" />
         <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/utils/Const.java" />
         <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/exceptions/TIFFMatrixException.java" />
         <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/PointSet.java" />
-        <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/tool/ImageTool.java" />
-        <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/Matrix.java" />
+        <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/frame/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/TIFFShow.java" />
         <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/utils/UsualUtil.java" />
+        <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/part/MainFrame.java" />
+        <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/part/ShowFrame.java" />
+        <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/Matrix.java" />
+        <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/tool/ImageTool.java" />
+        <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/entity/NumberTextField.java" />
+        <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/layout/VerticalFlowLayout.java" />
+        <option value="$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/part/ImagePanel.java" />
       </list>
     </option>
   </component>
@@ -221,17 +241,16 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1440" />
-    <option name="height" value="808" />
+    <option name="height" value="797" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -276,20 +295,45 @@
               <item name="TiffFun" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="tiff" type="462c0819:PsiDirectoryNode" />
-              <item name="utils" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TiffFun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TiffFun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tiff" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TiffFun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TiffFun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tiff" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="TiffFun" type="b2602c69:ProjectViewProjectNode" />
+              <item name="TiffFun" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tiff" type="462c0819:PsiDirectoryNode" />
+              <item name="ui" type="462c0819:PsiDirectoryNode" />
+              <item name="part" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/vaskka/Desktop/TiffFun/src/com/vaskka/fun/tiff/exceptions/TIffChangeBaseException.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542191397604" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542383858128" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -333,18 +377,27 @@
       <workItem from="1541581905720" duration="8544000" />
       <workItem from="1542184819765" duration="6467000" />
       <workItem from="1542195957516" duration="1318000" />
-      <workItem from="1542296790720" duration="4237000" />
+      <workItem from="1542296790720" duration="4834000" />
+      <workItem from="1542370793956" duration="10169000" />
     </task>
+    <task id="LOCAL-00001" summary="完成 boxblur 和 sobel 接口">
+      <created>1542301679318</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1542301679318</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20566000" />
+    <option name="totallyTimeSpent" value="31332000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="806" extended-state="6" />
+    <frame x="0" y="23" width="1440" height="797" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.26037195" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2639485" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -354,8 +407,8 @@
       <window_info id="Favorites" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32960895" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32913166" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39915967" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32907802" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39858156" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -363,7 +416,7 @@
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32960895" />
-      <window_info anchor="bottom" id="Messages" order="11" />
+      <window_info anchor="bottom" id="Messages" order="11" weight="0.32907802" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -381,6 +434,22 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="完成 boxblur 和 sobel 接口" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成 boxblur 和 sobel 接口" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/part/MainFrame.java</url>
+          <line>79</line>
+          <properties />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity.java" />
     <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/Test.java" />
@@ -395,21 +464,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="809">
           <caret line="412" column="18" selection-start-line="412" selection-start-column="18" selection-end-line="412" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/exceptions/TIffChangeBaseException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="645">
-          <caret line="49" column="40" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
-          <folding>
-            <element signature="e#349#350#0" expanded="true" />
-            <element signature="e#383#384#0" expanded="true" />
-            <element signature="e#1070#1071#0" expanded="true" />
-            <element signature="e#1098#1099#0" expanded="true" />
-            <element signature="e#1142#1143#0" expanded="true" />
-            <element signature="e#1176#1177#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -442,6 +496,7 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/frame/MainFrame.java" />
     <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/exceptions/TIFFMatrixException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -460,18 +515,97 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.desktop/java/awt/Component.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="8396" column="18" selection-start-line="8396" selection-start-column="18" selection-end-line="8396" selection-end-column="18" />
+          <folding>
+            <element signature="e#311784#311785#0" expanded="true" />
+            <element signature="e#311855#311856#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk-10.0.2.jdk/Contents/Home/lib/src.zip!/java.desktop/javax/swing/text/JTextComponent.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="1752" column="18" selection-start-line="1752" selection-start-column="18" selection-end-line="1752" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/part/MainFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="48" lean-forward="true" selection-start-line="47" selection-start-column="17" selection-end-line="48" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/part/ShowFrame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1108">
+          <caret line="97" column="39" selection-start-line="97" selection-start-column="39" selection-end-line="97" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="291">
+          <caret line="30" column="12" selection-start-line="30" selection-start-column="12" selection-end-line="30" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/utils/UsualUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="885">
-          <caret line="59" column="1" selection-start-line="59" selection-start-column="1" selection-end-line="59" selection-end-column="1" />
+        <state relative-caret-position="267">
+          <caret line="55" column="27" selection-start-line="55" selection-start-column="27" selection-end-line="55" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/Matrix.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-396">
+          <caret line="53" column="7" lean-forward="true" selection-start-line="53" selection-start-column="7" selection-end-line="53" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#697#698#0" expanded="true" />
+            <element signature="e#725#726#0" expanded="true" />
+            <element signature="e#755#756#0" expanded="true" />
+            <element signature="e#784#785#0" expanded="true" />
+            <element signature="e#823#824#0" expanded="true" />
+            <element signature="e#856#857#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/Pixel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="38" column="11" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/PixImage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/PointSet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+        <state relative-caret-position="111">
+          <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
           <folding>
+            <element signature="e#320#321#0" expanded="true" />
             <element signature="e#344#345#0" expanded="true" />
             <element signature="e#375#376#0" expanded="true" />
             <element signature="e#401#402#0" expanded="true" />
@@ -483,47 +617,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/Pixel.java">
+    <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/exceptions/TIffChangeBaseException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="38" column="11" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/PixImage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="27" column="11" selection-start-line="27" selection-start-column="11" selection-end-line="27" selection-end-column="11" />
+        <state relative-caret-position="261">
+          <caret line="49" column="40" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
+          <folding>
+            <element signature="e#349#350#0" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#1070#1071#0" expanded="true" />
+            <element signature="e#1098#1099#0" expanded="true" />
+            <element signature="e#1142#1143#0" expanded="true" />
+            <element signature="e#1176#1177#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/tool/ImageTool.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-114">
-          <caret line="201" selection-start-line="201" selection-end-line="201" />
+        <state relative-caret-position="60">
+          <caret line="4" column="40" selection-start-line="4" selection-start-column="40" selection-end-line="4" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#fromSourceImageGetBoxBlurImage#0;class#ImageTool#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/entity/Matrix.java">
+    <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/entity/NumberTextField.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="100" column="40" selection-start-line="100" selection-start-column="40" selection-end-line="100" selection-end-column="40" />
+        <state relative-caret-position="132">
+          <caret line="13" selection-start-line="13" selection-end-line="13" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#323#324#0" expanded="true" />
+            <element signature="e#346#347#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/TIFFShow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="27" column="115" selection-start-line="27" selection-start-column="115" selection-end-line="27" selection-end-column="115" />
+        <state relative-caret-position="165">
+          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/layout/VerticalFlowLayout.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1799">
+          <caret line="90" column="19" selection-start-line="90" selection-start-column="19" selection-end-line="90" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/vaskka/fun/tiff/ui/part/ImagePanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="73" column="19" selection-start-line="73" selection-start-column="19" selection-end-line="73" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#543#544#0" expanded="true" />
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#673#674#0" expanded="true" />
+            <element signature="e#713#714#0" expanded="true" />
+            <element signature="e#746#747#0" expanded="true" />
+            <element signature="e#778#779#0" expanded="true" />
+            <element signature="e#886#887#0" expanded="true" />
+            <element signature="e#928#929#0" expanded="true" />
           </folding>
         </state>
       </provider>

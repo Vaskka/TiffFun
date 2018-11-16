@@ -13,13 +13,26 @@ import com.vaskka.fun.tiff.exceptions.TiffChangeRunningException;
 
 public class Matrix {
 
+    /**
+     * 矩阵宽度
+     */
     private int width;
 
+    /**
+     * 矩阵高度
+     */
     private int height;
 
 
+    /**
+     * 矩阵内部而为数组
+     */
     private  long[][] innerArray;
 
+    /**
+     * 用而为数组构造矩阵
+     * @param innerArray
+     */
     public Matrix(long[][] innerArray) {
         this.innerArray = innerArray;
         this.width = innerArray[0].length;

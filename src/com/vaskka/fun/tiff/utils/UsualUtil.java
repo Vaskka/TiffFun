@@ -53,6 +53,7 @@ public class UsualUtil {
             result.append(sList[i]);
         }
         result.append(Const.BOX_BLUR_OUTPUT_IMAGE_NAME_END);
+        result.append(".");
         result.append(format);
 
         return result.toString();

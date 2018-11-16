@@ -3,20 +3,17 @@ package com.vaskka.fun.tiff.tool;
 import com.vaskka.fun.tiff.entity.Matrix;
 import com.vaskka.fun.tiff.entity.PixImage;
 import com.vaskka.fun.tiff.entity.Pixel;
-import com.vaskka.fun.tiff.entity.PointSet;
 import com.vaskka.fun.tiff.exceptions.TIFFMatrixException;
 import com.vaskka.fun.tiff.exceptions.TiffChangeRunningException;
 import com.vaskka.fun.tiff.utils.ImageUtility;
 import com.vaskka.fun.tiff.utils.UsualUtil;
 
 import javax.imageio.ImageIO;
-import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import static com.vaskka.fun.tiff.utils.ImageUtility.energy2gray;
-import static com.vaskka.fun.tiff.utils.UsualUtil.l;
 import static java.io.File.separator;
 
 /**
