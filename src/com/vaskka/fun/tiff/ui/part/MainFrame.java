@@ -20,11 +20,21 @@ import java.io.IOException;
 
 public class MainFrame extends JFrame {
 
+    /**
+     * 主界面 展示box blur按钮
+     */
     private JButton buttonBoxBlur;
 
+    /**
+     * 主界面 展示Sobel按钮
+     */
     private JButton buttonSobel;
 
 
+    /**
+     * 构造窗体
+     * @param title 标题
+     */
     public MainFrame(String title) {
         super(title);
 
@@ -37,22 +47,26 @@ public class MainFrame extends JFrame {
 
     }
 
+
+    /**
+     * 初始化视图
+     */
     private void initView() {
         Container container = getContentPane();
 
-
-
+        // 标题样式
         JLabel mainTitle = new JLabel("TIFF SHOW");
         mainTitle.setSize(300, 300);
         mainTitle.setFont(new Font("Dialog", Font.ITALIC, 35));
         mainTitle.setHorizontalAlignment(SwingConstants.CENTER);
 
+        // 按钮样式
         buttonBoxBlur = new JButton("Box Blur");
         buttonBoxBlur.setPreferredSize(new Dimension(500, 50));
         buttonSobel = new JButton("Sobel");
         buttonSobel .setPreferredSize(new Dimension(500, 50));
 
-
+        // 上方留白
         for (int i = 0; i < 5; i++) {
             var space = new  JLabel(" ");
             container.add(space);
@@ -60,6 +74,7 @@ public class MainFrame extends JFrame {
 
         container.add(mainTitle);
 
+        // 中部留白
         for (int i = 0; i < 6; i++) {
             var space = new  JLabel(" ");
             container.add(space);
@@ -78,6 +93,7 @@ public class MainFrame extends JFrame {
             String path = chooseImageFile();
 
             if (path != null) {
+                // 路径有效
                 try {
                     ShowFrame showFrame = new ShowFrame("Box Blur", MainFrame.this, path, ShowFrame.ShowType.BoxBlur);
                 } catch (IOException e1) {
@@ -90,6 +106,7 @@ public class MainFrame extends JFrame {
 
             }
             else {
+                // 路径无效
                 JOptionPane.showMessageDialog(MainFrame.this, "出错啦", "文件不存在", JOptionPane.ERROR_MESSAGE);
             }
         });
@@ -98,6 +115,7 @@ public class MainFrame extends JFrame {
             String path = chooseImageFile();
 
             if (path != null) {
+                // 路径有效
                 try {
                     ShowFrame showFrame = new ShowFrame("Sobel", MainFrame.this, path, ShowFrame.ShowType.Sobel);
                 } catch (IOException e1) {
@@ -111,6 +129,7 @@ public class MainFrame extends JFrame {
 
             }
             else {
+                // 路径无效
                 JOptionPane.showMessageDialog(MainFrame.this, "出错啦", "文件不存在", JOptionPane.ERROR_MESSAGE);
             }
         });
@@ -118,6 +137,10 @@ public class MainFrame extends JFrame {
 
     }
 
+    /**
+     * 文件打开窗体
+     * @return 选择文件的绝对路径
+     */
     private String chooseImageFile() {
 
         var choose = new JFileChooser();

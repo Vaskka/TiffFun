@@ -22,39 +22,82 @@ import java.io.IOException;
 
 public class ShowFrame extends JFrame {
 
+    /**
+     * 主窗口的引用
+     */
     private JFrame context;
 
-   private BufferedImage sourceImage;
+    /**
+     * 图片源BufferedImage
+     */
+     private BufferedImage sourceImage;
 
-   private String sourcePath;
+    /**
+     * 图片源绝对路径
+     */
+    private String sourcePath;
 
+    /**
+     * 变换后图片BufferedImage
+     */
+    private BufferedImage resultImage;
 
-   private BufferedImage resultImage;
+    /**
+     * 迭代次数，初始默认1
+     */
+    private int count = 1;
 
-   private int count = 1;
+    /**
+     * 更改迭代次数
+     */
+     private JButton changeCount;
 
-   private JButton changeCount;
+    /**
+     * 原图片展示窗体
+     */
+    private ImagePanel source;
 
-   private ImagePanel source;
+    /**
+     * 变换后图片展示窗体
+     */
+     private ImagePanel result;
 
-   private ImagePanel result;
-
+    /**
+     * 迭代次数输入框
+     */
     private JTextField countTextField;
 
-   private ShowType type;
+    /**
+     * 变换种类
+     */
+     private ShowType type;
 
-   public enum ShowType {
-       BoxBlur,
-       Sobel
-   }
+    /**
+     * 变换种类枚举
+     */
+    public enum ShowType {
+        BoxBlur,
+        Sobel
+     }
 
-    public ShowFrame(String title, JFrame context, String sourcePath, ShowType type) throws IOException, TiffChangeRunningException, TIFFMatrixException {
+    /**
+     * 初始化变换窗体
+     * @param title 标题
+     * @param context 上下文（主窗口引用）
+     * @param sourcePath 原图片路径
+     * @param type 种类
+     * @throws IOException 文件读写异常 403
+     * @throws TiffChangeRunningException 变换发生异常 500
+     * @throws TIFFMatrixException 矩阵计算错误 500
+     */
+     public ShowFrame(String title, JFrame context, String sourcePath, ShowType type) throws IOException, TiffChangeRunningException, TIFFMatrixException {
         super(title);
 
         this.context = context;
         this.sourcePath = sourcePath;
         this.sourceImage = ImageIO.read(new FileInputStream(sourcePath));
 
+        // 讨论种类
         switch (type) {
             case BoxBlur:
                 resultImage = ImageTool.getBoxBlurImage(sourcePath, count);
@@ -75,13 +118,15 @@ public class ShowFrame extends JFrame {
 
         context.setVisible(false);
 
-    }
+     }
 
 
     private void initView() {
+         // 按钮样式
         changeCount = new JButton("Let's Change the Count!");
         changeCount.setPreferredSize(new Dimension(300, 50));
 
+        // 输入框样式
         countTextField = new JTextField("", 20);
         countTextField.setPreferredSize(new Dimension(300, 50));
 
@@ -105,6 +150,7 @@ public class ShowFrame extends JFrame {
         container.add(after);
         container.add(result);
 
+        // 占位
         for (int i = 0; i < 3; i++) {
             container.add(new JLabel(" "));
         }
@@ -116,12 +162,14 @@ public class ShowFrame extends JFrame {
 
     private void initAction() {
         changeCount.addActionListener(e->{
+            // 晴空输入框
             String countString = countTextField.getText();
             countTextField.setText("");
 
             try {
                 count = Integer.parseInt(countString);
 
+                // 讨论不同种类变换
                 switch (type) {
                     case BoxBlur:
                         resultImage = ImageTool.getBoxBlurImage(sourcePath, count);
