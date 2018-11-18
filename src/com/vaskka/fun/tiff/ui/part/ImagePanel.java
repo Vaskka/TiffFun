@@ -17,7 +17,7 @@ public class ImagePanel extends JPanel {
     /**
      * 内部展示BufferedImage
      */
-    private BufferedImage image;
+    private Image image;
 
     /**
      * 图片宽度
@@ -60,13 +60,22 @@ public class ImagePanel extends JPanel {
      * 设置内部展示图片
      * @param img
      */
-     void setImage(BufferedImage img) {
+     void setImage(Image img) {
 
         image = img;
         setImgWidth(image.getWidth(this));
         setImgHeight(image.getHeight(this));
 
-        setPreferredSize(new Dimension(imgWidth, imgHeight));
+        int rw = imgWidth;
+        int rh = imgHeight;
+//        if (imgWidth > 150) {
+//            rw = 150;
+//        }
+//        if (imgHeight > 150) {
+//            rh = 150;
+//        }
+
+        setPreferredSize(new Dimension(rw, rh));
     }
 
     /**

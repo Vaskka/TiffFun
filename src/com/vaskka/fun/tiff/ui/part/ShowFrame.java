@@ -135,8 +135,8 @@ public class ShowFrame extends JFrame {
         source = new ImagePanel();
         result = new ImagePanel();
 
-        source.setImage(sourceImage);
-        result.setImage(resultImage);
+        source.setImage(sourceImage.getScaledInstance(150, 150, Image.SCALE_SMOOTH));
+        result.setImage(resultImage.getScaledInstance(150, 150, Image.SCALE_SMOOTH));
 
 
         JLabel before = new JLabel("变换前:");
@@ -179,7 +179,7 @@ public class ShowFrame extends JFrame {
                         break;
                 }
 
-                result.setImage(resultImage);
+                result.setImage(resultImage.getScaledInstance(150, 150, Image.SCALE_SMOOTH));
                 result.repaint();
             }
             catch (NumberFormatException except) {
